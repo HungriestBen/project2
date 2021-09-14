@@ -1,0 +1,10 @@
+<h3>Latest Cards</h3>
+
+<% cards.each do |card| %>
+    <h2>
+    
+    <a href="cards/<%= card["id"] %>">
+        <%= card["title"] %></a>
+    </h2>
+    <img src="<%= card["image_url"] %>" alt="">
+    <%end%>

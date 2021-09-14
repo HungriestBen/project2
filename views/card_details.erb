@@ -1,0 +1,19 @@
+<div class="center">
+<h1>Card Details</h1>
+
+<p>Title:<%= card['title'] %> </p>
+<p>Attack:<%= card['attack'] %> </p>
+<p>Health:<%= card['health'] %> </p>
+<p>Rarity:<%= card['rarity'] %> </p>
+<p>Text Description:<%= card['text_description'] %> </p>
+<p>Cost:<%= card['cost'] %> </p>
+
+
+<img src="<%= card['image_url']%>" alt="">
+
+<div>
+<a href="/cards/<%= card["id"] %>/edit">Edit</a>
+</div>
+
+
+</div>

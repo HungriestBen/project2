@@ -1,0 +1,32 @@
+<div class="center">
+
+<h1>Edit your card</h1>
+<form action="/cards/<%= card["id"]%>" method="post">
+
+    <input type="hidden" name="_method" value="put">
+
+    <form action="/cards" method="post">
+    <label for="">Title:</label>
+    <input type="text" name="title">
+    <label for="">Attack:</label>
+    <input type="number" name="attack">
+    <label for="">Health:</label>
+    <input type="number" name="health">
+    <label for="">Rarity:</label>
+    <select name="rarity" <%#Grab this name value for database%> id="rarity">
+    <option value="common">Common</option>
+    <option value="uncommon">Uncommon</option>
+    <option value="rare">Rare</option>
+    <option value="legendary">Legendary</option>
+    </select>
+    <label for="">Text Description:</label>
+    <input type="text" name="text_description">
+    <label for="">Cost:</label>
+    <input type="number" name="cost">
+    <label for="">Image URL:</label>
+    <input type="text" name="image_url">
+
+
+    <button>Update</button>
+</form>
+</div>
