@@ -7,9 +7,9 @@ require_relative 'models/user.rb'
 require_relative 'models/card.rb' 
 require_relative 'models/comments.rb' 
 
-also_reload 'models/card.rb' 
-also_reload 'models/user.rb' 
-also_reload 'models/comments.rb'
+also_reload 'models/card.rb' if development?
+also_reload 'models/user.rb' if development?
+also_reload 'models/comments.rb'if development?
 
 enable :sessions
 
