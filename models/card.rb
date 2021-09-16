@@ -7,8 +7,17 @@ def run_sql(sql)
     return result
 end
 
+def find_card_by_user_id(user_id)
+    sql = "SELECT * FROM cards WHERE user_id = #{user_id};"
+    return run_sql(sql)
+end
 
-def create_card(title, attack, health, rarity, text_description, cost, image_url)
+def create_card(title, attack, health, rarity, text_description, cost, image_url, user_id)
+    sql = "INSERT INTO cards (title, attack, health, rarity, text_description, cost, image_url, user_id) VALUES ('#{title}', '#{attack}', '#{health}', '#{rarity}', '#{text_description}', '#{cost}', '#{image_url}', '#{user_id}');"
+    return run_sql(sql)
+end
+
+def create_card_guest(title, attack, health, rarity, text_description, cost, image_url)
     sql = "INSERT INTO cards (title, attack, health, rarity, text_description, cost, image_url) VALUES ('#{title}', '#{attack}', '#{health}', '#{rarity}', '#{text_description}', '#{cost}', '#{image_url}');"
     return run_sql(sql)
 end
@@ -29,8 +38,14 @@ def find_latest_card_id(id)
     return run_sql(sql)
 end
 
-#Updates dish
+#Updates card
 def update_card(id, title, attack, health, rarity, text_description, cost, image_url)
     sql = "UPDATE cards SET title = '#{title}', attack = '#{attack}', health = '#{health}', rarity = '#{rarity}', text_description = '#{text_description}', cost = '#{cost}', image_url = '#{image_url}' WHERE id = #{id};"
+    return run_sql(sql)
+end
+
+#Delete card
+def delete_card(id)
+    sql = "DELETE FROM cards WHERE id = #{id}"
     return run_sql(sql)
 end

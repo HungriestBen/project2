@@ -5,17 +5,35 @@
   <title>Hello World</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Asul:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="headerwrap">
-  <header><a href="/">Card Maker</a></header>
-  <nav>
-  <a href="/">Home</a>
-  <a href="/create_new_card">Create Card</a>
-  <a href="/about">About Us</a>
-  <a href="/donations">Donations</a>
-  </nav>
+    <img class="headerlogo" src="https://i.imgur.com/LVbPICx.png" alt="">
+    <header><a href="/">Card Maker</a></header>
+    <nav>
+    <a href="/">Home</a>
+    <a href="/create_new_card">Create Card</a>
+    <a href="/about">About Us</a>
+    <a href="/donations">Donations</a>
+    <% if !logged_in?() %>
+    <a href="/login">Login</a>
+    <% end %>
+      <% if logged_in?() %>
+        <a href="/my_cards">My cards</a>
+    Logged in as: <%= current_user()["email"] %>
+    <form action="/session" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>Logout</button>
+    </form>
+
+
+    <% end %>
+    </nav>
   </div>
+
   <%= yield %>
 
 </body>

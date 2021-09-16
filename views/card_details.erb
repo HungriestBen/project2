@@ -1,19 +1,48 @@
+<div class="gap"></div>
+
 <div class="center">
-<h1>Card Details</h1>
+    <h1>Card Details</h1>
 
-<p>Title:<%= card['title'] %> </p>
-<p>Attack:<%= card['attack'] %> </p>
-<p>Health:<%= card['health'] %> </p>
-<p>Rarity:<%= card['rarity'] %> </p>
-<p>Text Description:<%= card['text_description'] %> </p>
-<p>Cost:<%= card['cost'] %> </p>
+    <p>Title:<%= card['title'] %> </p>
+    <p>Attack:<%= card['attack'] %> </p>
+    <p>Health:<%= card['health'] %> </p>
+    <p>Rarity:<%= card['rarity'] %> </p>
+    <p>Text Description:<%= card['text_description'] %> </p>
+    <p>Cost:<%= card['cost'] %> </p>
 
 
-<img src="<%= card['image_url']%>" alt="">
+    <img src="<%= card['image_url']%>" alt="">
 
-<div>
-<a href="/cards/<%= card["id"] %>/edit">Edit</a>
+    <div>
+    <a href="/cards/<%= card["id"] %>/edit">Edit</a>
+    </div>
+
+    <%# Delete the dish method button %>
+    <form action="/cards/<%= card["id"] %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>Delete</button>
+    </form>
+
+
+    <div class="container">
+        <h3>Leave a comment</h3>
+        <form action="/cards/<%= card["id"]%>" method="post"> 
+        <textarea placeholder="Leave a comment!" name="comment" cols="50" rows="5"></textarea>
+        <div></div>
+        <button>Submit</button>
+
+        </form>
+    </div>
+
+    <h2>Comments</h2>
+    <div class="gap"></div>
 </div>
-
-
-</div>
+        <% comments.each do |comment| %>
+        <div class="center">
+        <h3>
+            On <%= comment["time"] %>
+            <%= comment["user_id"] %> Posted:
+            <%= comment["comment"] %>
+        </h3>
+        </div>
+        <%end%>

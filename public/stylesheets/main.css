@@ -1,6 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+}
+
+
+
 body {
     background-image: url(https://hearthstoneapi.com/images/body-content-bg.jpg);
     background-position: center;
+    font-family: 'Asul', sans-serif;;
 }
 
 .headerwrap {
@@ -16,14 +28,32 @@ body {
     text-align: center
 }
 
+header {
+    font-size: 50px;
+    color: rgb(199, 133, 74);
+
+}
+
 header a{
-    font-size: 40px;
     text-decoration: none;
     text-decoration-style: none;
     color: inherit;
+    font-weight: 700;
 }
+
+.headerlogo {
+    width: 300px;
+}
+
 a {
     padding: 10px;
+    margin: 0 auto;
+}
+
+.create_card_placeholder {
+    width: 800px;
+    height: 400px;
+    background-color: sienna;
     margin: 0 auto;
 }
 
@@ -32,6 +62,32 @@ a {
     margin: 0 auto;
 }
 
-.thumbnail img {
-    width: 300px;
+.latest_cards {
+    text-align: center;
+}
+
+.latest_cards_grid {
+    display: grid;
+    position: relative;
+    text-align: center;
+    grid-template-columns: auto auto auto auto;
+    justify-items: center;
+    margin: 0 auto;
+    width: 50%;
+
+}
+
+.latest_cards_grid img {
+    display: block;
+    width: 200px;
+}
+
+.line {
+    height: 1px;
+    width: 400px;
+    background-color: grey
+}
+
+.gap {
+    padding: 10px;
 }
