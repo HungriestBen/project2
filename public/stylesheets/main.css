@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, p {
     margin: 0;
     padding: 0;
 }
@@ -90,4 +90,78 @@ a {
 
 .gap {
     padding: 10px;
+}
+
+/* THIS IS FOR THE TEMPLATE */
+
+
+h4 {
+    font-weight: 900px;
+    font-size: 70px;
+}
+
+.card_wrap {
+    z-index: 1;
+    width: 390px;
+    height: 543px;
+}
+
+.template {
+    position: relative;
+    z-index: 9;
+    bottom: 300px;
+}
+.card_image {
+    z-index: 8;
+    position: relative;
+
+}
+
+.card_image img {
+    display: block;
+    position: relative;
+    width: 200px;
+    margin-left: 100px;
+    
+}
+
+.card_description {
+    position: relative;
+    z-index: 10;
+    bottom: 500px;
+    text-align: center;
+}
+
+.card_name {
+    position: relative;
+    z-index: 11;
+    bottom: 650px;
+    text-align: center;
+}
+
+.card_cost {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    position: relative;
+    z-index: 12;
+    bottom: 1031px;
+    left: 44px;
+}
+
+.card_attack {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    position: relative;
+    z-index: 12;
+    bottom: 773px;
+    left: 44px;
+}
+
+.card_health {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    position: relative;
+    z-index: 12;
+    bottom: 945px;
+    left: 329px;
 }

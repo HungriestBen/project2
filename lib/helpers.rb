@@ -14,7 +14,8 @@ end
   
 
 def run_sql(sql)
-    db = PG.connect(dbname: 'custom_cards')
+    db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'custom_cards'})
+    
     result = db.exec(sql)
     db.close
     return result

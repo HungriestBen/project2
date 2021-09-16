@@ -1,14 +1,14 @@
-require 'sinatra'
-require 'sinatra/reloader'
-require 'bcrypt'
+require 'sinatra' 
+require 'sinatra/reloader' if development?
+require 'bcrypt' 
 
 
-require_relative 'models/user.rb'
-require_relative 'models/card.rb'
-require_relative 'models/comments.rb'
+require_relative 'models/user.rb' 
+require_relative 'models/card.rb' 
+require_relative 'models/comments.rb' 
 
-also_reload 'models/card.rb'
-also_reload 'models/user.rb'
+also_reload 'models/card.rb' 
+also_reload 'models/user.rb' 
 also_reload 'models/comments.rb'
 
 enable :sessions
@@ -28,7 +28,8 @@ end
 
 get '/' do
 
-  cards = find_all_cards()
+  # cards = find_all_cards()
+  cards = find_all_cards_desc()
 
   erb :index, locals: { cards: cards}
 end
@@ -48,7 +49,7 @@ end
 get '/cards/:id' do
   card = find_card_by_id(params["id"])
   comments = find_comments_by_card_id(params["id"])
-  user = find_user_by_comment_user_id(params["id"])
+  user = find_user_by_comment_user_id(params["id"]) ##TRY TO GET THIS TO WORK
 
   erb :card_details, locals: {
     card: card,
@@ -96,11 +97,14 @@ end
 # Post Comment
 post '/cards/:id' do
 
-  # comments = find_comment_by_card_id(params[:id])
   create_comment(Time.now, params["comment"], current_user["id"], params[:id])
+  
+  # CHRIS' TIME CODE
+  # time = Time.parse(current_items[0]['creation_time']).strftime("%d/%m/%Y %H:%M") 
+
+
   redirect "/"
 
-  erb locals: { comments: comments}
 end
 
 #Delete the card here

@@ -13,6 +13,7 @@
 
     <img src="<%= card['image_url']%>" alt="">
 
+
     <div>
     <a href="/cards/<%= card["id"] %>/edit">Edit</a>
     </div>
@@ -23,26 +24,36 @@
         <button>Delete</button>
     </form>
 
-
+    <%if logged_in?() %>
     <div class="container">
         <h3>Leave a comment</h3>
         <form action="/cards/<%= card["id"]%>" method="post"> 
         <textarea placeholder="Leave a comment!" name="comment" cols="50" rows="5"></textarea>
         <div></div>
-        <button>Submit</button>
 
+        <button>Submit</button>
         </form>
     </div>
 
+    <% end %>
+    <div class="gap"></div>
+    <% if !logged_in?() %>
+    
+    <p>Please<a href="/login" >log in</a> to comment</p>
+    <% end %>
     <h2>Comments</h2>
     <div class="gap"></div>
 </div>
         <% comments.each do |comment| %>
         <div class="center">
+        <% time = Time.parse(comment['time']).strftime("%d/%m/%Y %H:%M") %>
+
         <h3>
-            On <%= comment["time"] %>
+            On <%= time %>
+            <div></div>
             <%= comment["user_id"] %> Posted:
             <%= comment["comment"] %>
         </h3>
+        <div class="gap"></div>
         </div>
         <%end%>

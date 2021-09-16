@@ -1,14 +1,14 @@
+<div class="center">
 <div class="gap"></div>
 <h1><%= user['email'] %>'s Cards:</h1>
-
+<div class="gap"></div>
 <% cards.each do |card| %>
-
-    <img src="<%= card["image_url"] %>" alt="">
-
     <h2>
-    <a href="card/<%= card["id"] %>">
+    <a href="cards/<%= card["id"] %>">
         <%= card["title"] %></a>
     </h2>
+    <img src="<%= card["image_url"] %>" alt="">
 <% end %>
 <%# Grab all dishes made by current_user %>
 <%# For .each dish created by user list it's title and image_url %>
+</div>

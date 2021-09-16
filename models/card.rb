@@ -1,7 +1,7 @@
 require 'pg'
 
 def run_sql(sql)
-    db = PG.connect(dbname: 'custom_cards')
+    db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'custom_cards'})
     result = db.exec(sql)
     db.close
     return result
@@ -25,6 +25,11 @@ end
 
 def find_all_cards()
     sql = "SELECT * FROM cards ORDER by id;"
+    return run_sql(sql)
+end
+
+def find_all_cards_desc()
+    sql = "SELECT * FROM cards ORDER by id desc;"
     return run_sql(sql)
 end
 

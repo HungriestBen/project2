@@ -1,8 +1,8 @@
-require 'pg'
-require 'bcrypt'
+require 'pg' 
+require 'bcrypt' 
 
 def run_sql(sql)
-    db = PG.connect(dbname: 'custom_cards')
+    db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'custom_cards'})
     result = db.exec(sql)
     db.close
     return result
@@ -10,7 +10,7 @@ end
 
 def create_user(email, password_digest)
 
-    db = PG.connect(dbname: 'custom_cards')
+    db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'custom_cards'})
 
     password = password_digest
     email = email
@@ -25,7 +25,7 @@ def create_user(email, password_digest)
 end
 
 def find_user_by_email(email)
-    db = PG.connect(dbname: 'custom_cards')
+    db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'custom_cards'})
     sql = "SELECT * FROM users WHERE email = '#{email}';"
     result = db.exec(sql) #Return an array of hashes
     db.close
@@ -38,7 +38,7 @@ def find_user_by_email(email)
 end
 
 def find_user_by_id(id)
-    db = PG.connect(dbname: 'custom_cards')
+    db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'custom_cards'})
     sql = "SELECT * FROM users WHERE id = '#{id}';"
     result = db.exec(sql)
     db.close
