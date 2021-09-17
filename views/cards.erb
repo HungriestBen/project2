@@ -1,14 +1,6 @@
-<div class="gap"></div>
-<div class="center_banner">
-    <a href="/create_new_card">
-        <img class="create_banner" src="https://i.imgur.com/SCXoam9.png" alt="" class="center_image">
-    </a>
-</div>
-<div class="gap"></div>
-
 <div class="latest_cards">
-    <h2>Latest Cards</h2>
-    <div class="line"></div>
+    <div class="gap"></div>
+    <h1>Card Library</h1>
     <div class="gap"></div>
     <div class="latest_cards_grid">
         <% cards.each do |card| %>
@@ -17,10 +9,9 @@
             <a href="cards/<%= card["id"] %>">
             <%= card["title"] %></a>
             <img src="<%= card["image_url"] %>" alt="">
+                         
         </h3>
 
-        
-
-        <%end%>
+           <%end%>
     </div>
 </div>

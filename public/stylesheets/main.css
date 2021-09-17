@@ -7,6 +7,7 @@ h1, h2, h3, h4, p {
     padding: 0;
 }
 
+form { display: inline; }
 
 
 body {
@@ -31,6 +32,7 @@ body {
 header {
     font-size: 50px;
     color: rgb(199, 133, 74);
+    text-shadow: -1px -1px 0 rgb(101, 47, 0), 1px -1px 0 rgb(110, 51, 5), -1px 1px 0 rgb(93, 32, 6), 1px 1px 0 rgb(91, 38, 6);
 
 }
 
@@ -50,17 +52,22 @@ a {
     margin: 0 auto;
 }
 
-.create_card_placeholder {
-    width: 800px;
-    height: 400px;
-    background-color: sienna;
-    margin: 0 auto;
-}
-
 .center {
     text-align: center;
     margin: 0 auto;
 }
+
+.create_banner {
+    border: 5px solid sandybrown;
+}
+
+.center_banner {
+        display: block;
+        margin: 0 auto;
+        width: 50%;
+}
+
+
 
 .latest_cards {
     text-align: center;
@@ -90,78 +97,91 @@ a {
 
 .gap {
     padding: 10px;
+
+}
+
+.line {
+    height: 2px;
+    width: 150px;
+    margin: 0 auto;
+    background-color: rgba(159, 87, 29, 0.2);
 }
 
 /* THIS IS FOR THE TEMPLATE */
 
-
-h4 {
-    font-weight: 900px;
-    font-size: 70px;
+h6 {
+    font-weight: 800;
+    font-family: 'Asul', sans-serif;
+    font-size:  60px; 
+    color: white;
+    position: absolute;
 }
 
-.card_wrap {
-    z-index: 1;
-    width: 390px;
-    height: 543px;
-}
-
-.template {
+.floating_template {
     position: relative;
-    z-index: 9;
-    bottom: 300px;
+    z-index: 2;
 }
 .card_image {
-    z-index: 8;
-    position: relative;
-
-}
-
-.card_image img {
-    display: block;
-    position: relative;
-    width: 200px;
-    margin-left: 100px;
-    
-}
-
-.card_description {
-    position: relative;
-    z-index: 10;
-    bottom: 500px;
-    text-align: center;
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: 240px;
+    right: 460px;
+    z-index: 1;
 }
 
 .card_name {
-    position: relative;
-    z-index: 11;
-    bottom: 650px;
-    text-align: center;
+    position: absolute;
+    bottom: 400px;
+    font-size: 30px;
+    font-weight: 600;
+    right: 910px;
+    top: 680px;
+    z-index: 2;
+    max-width: 250px;
+    margin: 0 auto;
+    height: 400px;
+    max-height: 40px;
+    width: 1500px;
+    max-width: 200px;    
+}
+
+.card_description {
+    position: absolute;
+    font-size: 20px;
+    right: 890px;
+    top: 770px;
+    z-index: 2;
+    margin: 0 auto;
+    height: 400px;
+    max-height: 100px;
+    width: 400px;
+    max-width: 240px;
 }
 
 .card_cost {
-    color: white;
+    position: absolute;
+    right: 1175px;
+    top: 290px;
+    max-width: 250px;
+    z-index: 2;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    position: relative;
-    z-index: 12;
-    bottom: 1031px;
-    left: 44px;
 }
 
 .card_attack {
-    color: white;
+    position: absolute;
+    right: 1172px;
+    top: 725px;
+    max-width: 250px;
+    z-index: 2;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    position: relative;
-    z-index: 12;
-    bottom: 773px;
-    left: 44px;
 }
 
 .card_health {
-    color: white;
+    position: absolute;
+    right: 885px;
+    top: 725px;
+    max-width: 250px;
+    z-index: 2;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    position: relative;
-    z-index: 12;
-    bottom: 945px;
-    left: 329px;
 }

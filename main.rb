@@ -49,23 +49,28 @@ end
 get '/cards/:id' do
   card = find_card_by_id(params["id"])
   comments = find_comments_by_card_id(params["id"])
-  user = find_user_by_comment_user_id(params["id"]) ##TRY TO GET THIS TO WORK
+  user_of_comment = find_user_by_comment_user_id(params["id"]) ##TRY TO GET THIS TO WORK
+
 
   erb :card_details, locals: {
     card: card,
     comments: comments,
-    user: user
+    user_of_comment: user_of_comment,
+  }
+end
+
+get '/cards' do
+  "I list all cards"
+  cards = find_all_cards()
+
+  erb :cards, locals: {
+    cards: cards
   }
 end
 
 get '/about' do
   "I am the about page"
   erb :about
-end
-
-get '/donations' do
-  "I am the donations page"
-  erb :donations
 end
 
 #POST Make card
@@ -183,3 +188,4 @@ get '/template' do
   "Card template"
   erb :template
 end
+

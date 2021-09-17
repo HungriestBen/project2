@@ -1,6 +1,7 @@
 <div class="gap"></div>
 
 <div class="center">
+    <%# CARD INFO %>
     <h1>Card Details</h1>
 
     <p>Title:<%= card['title'] %> </p>
@@ -9,21 +10,36 @@
     <p>Rarity:<%= card['rarity'] %> </p>
     <p>Text Description:<%= card['text_description'] %> </p>
     <p>Cost:<%= card['cost'] %> </p>
+    <div class="gap"></div>
+    <%# CARD TEMPLATE %>
 
 
-    <img src="<%= card['image_url']%>" alt="">
+
+    <div class="card_wrap">
+        <div><img class="floating_template" src="https://i.imgur.com/sEWOhqy.png">
+            <div class="card_image"><img class="card_image" src=" <%= card['image_url']%> " alt=""></div>
+            <div class="card_name"><%= card['title'] %></div>
+            <div class="card_description"><%= card['text_description'] %></div>
+            <div class="card_cost"><h6><%= card['cost'] %></h6></div>
+            <div class="card_attack"><h6><%= card['attack'] %></h6></div>
+            <div class="card_health"><h6><%= card['health'] %></h6></div>
+        </div>
+    </div>
 
 
+    
+    <%# EDIT BUTTON %>
+    <%if logged_in?()%>
     <div>
     <a href="/cards/<%= card["id"] %>/edit">Edit</a>
     </div>
 
-    <%# Delete the dish method button %>
+    <%# Delete the card button %>
     <form action="/cards/<%= card["id"] %>" method="post">
         <input type="hidden" name="_method" value="delete">
         <button>Delete</button>
     </form>
-
+    <%end%>
     <%if logged_in?() %>
     <div class="container">
         <h3>Leave a comment</h3>
@@ -44,16 +60,19 @@
     <h2>Comments</h2>
     <div class="gap"></div>
 </div>
-        <% comments.each do |comment| %>
-        <div class="center">
-        <% time = Time.parse(comment['time']).strftime("%d/%m/%Y %H:%M") %>
 
-        <h3>
-            On <%= time %>
-            <div></div>
-            <%= comment["user_id"] %> Posted:
-            <%= comment["comment"] %>
-        </h3>
-        <div class="gap"></div>
-        </div>
-        <%end%>
+<div class="center">
+
+<% comments.each do |comment| %>
+<% time = Time.parse(comment['time']).strftime("%d/%m/%Y %H:%M") %>
+
+    <h3>
+        On <%= time %>
+        <div></div>
+        User <%= comment["user_id"] %> Posted:
+        <%= comment["comment"] %>
+    </h3>
+    <div class="gap"></div>
+
+<%end%>
+</div>

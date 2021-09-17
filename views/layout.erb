@@ -16,18 +16,18 @@
     <nav>
     <a href="/">Home</a>
     <a href="/create_new_card">Create Card</a>
-    <a href="/about">About Us</a>
-    <a href="/donations">Donations</a>
+    <a href="/cards">Library</a>
+    <a href="/about">About</a>
     <% if !logged_in?() %>
     <a href="/login">Login</a>
     <% end %>
       <% if logged_in?() %>
         <a href="/my_cards">My cards</a>
     Logged in as: <%= current_user()["email"] %>
-    <form action="/session" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <button>Logout</button>
-    </form>
+        <form action="/session" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button>Logout</button>
+        </form>
 
 
     <% end %>

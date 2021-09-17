@@ -29,7 +29,7 @@ def find_all_cards()
 end
 
 def find_all_cards_desc()
-    sql = "SELECT * FROM cards ORDER by id desc;"
+    sql = "SELECT * FROM cards ORDER by id desc LIMIT 8;"
     return run_sql(sql)
 end
 

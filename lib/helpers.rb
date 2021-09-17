@@ -20,3 +20,11 @@ def run_sql(sql)
     db.close
     return result
 end
+
+# def correct_user?(card)
+#   if session[:user_id] == find_user_by_id(card[:id])
+#     return true
+#   else
+#     return false
+#   end
+# end

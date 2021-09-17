@@ -59,3 +59,4 @@ def find_user_by_comment_user_id(id)
     sql = "SELECT * FROM users WHERE id = '#{id}';"
     return run_sql(sql)
 end
+
