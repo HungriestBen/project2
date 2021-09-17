@@ -51,12 +51,12 @@ get '/cards/:id' do
   comments = find_comments_by_card_id(params["id"])
   user_of_comment = find_user_by_comment_user_id(params["id"]) ##TRY TO GET THIS TO WORK
 
-
   erb :card_details, locals: {
     card: card,
     comments: comments,
     user_of_comment: user_of_comment,
   }
+
 end
 
 get '/cards' do

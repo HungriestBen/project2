@@ -27,9 +27,8 @@
     </div>
 
 
-    
     <%# EDIT BUTTON %>
-    <%if logged_in?()%>
+    <%if logged_in?() && card["user_id"] == session[:user_id]%> 
     <div>
     <a href="/cards/<%= card["id"] %>/edit">Edit</a>
     </div>
@@ -40,6 +39,8 @@
         <button>Delete</button>
     </form>
     <%end%>
+
+    <%# Leave a comment %>
     <%if logged_in?() %>
     <div class="container">
         <h3>Leave a comment</h3>

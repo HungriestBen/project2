@@ -60,3 +60,25 @@ def find_user_by_comment_user_id(id)
     return run_sql(sql)
 end
 
+
+def correct_user?(card, user_id_poster)
+    if card == user_id_poster
+        return true
+    else 
+        return false
+    end
+end
+
+def user_of_card(user_id)
+    sql = "SELECT * FROM user WHERE id = #{user_id}"
+    return run_sql(sql)
+end
+
+
+# def correct_user?(card)
+#   if session[:user_id] == find_user_by_card_user_id(card[:id])
+#     return true
+#   else
+#     return false
+#   end
+# end

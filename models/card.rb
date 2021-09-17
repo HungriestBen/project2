@@ -54,3 +54,4 @@ def delete_card(id)
     sql = "DELETE FROM cards WHERE id = #{id}"
     return run_sql(sql)
 end
+

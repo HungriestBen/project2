@@ -21,10 +21,10 @@ def run_sql(sql)
     return result
 end
 
-# def correct_user?(card)
-#   if session[:user_id] == find_user_by_id(card[:id])
-#     return true
-#   else
-#     return false
-#   end
-# end
+def correct_user?(card, user_id_poster)
+  if card == user_id_poster
+      return true
+  else 
+      return false
+  end
+end
