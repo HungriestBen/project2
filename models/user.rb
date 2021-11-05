@@ -75,6 +75,8 @@ def user_of_card(user_id)
 end
 
 
+
+
 # def correct_user?(card)
 #   if session[:user_id] == find_user_by_card_user_id(card[:id])
 #     return true
